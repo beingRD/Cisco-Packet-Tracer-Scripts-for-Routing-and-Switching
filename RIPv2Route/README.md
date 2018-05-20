@@ -7,6 +7,7 @@ To practice this example:
 - Add a server and connect it with R3 on the network 192.168.103.0/24
 - Execute the commands of the .txt file
 ```
+![ripv2route](https://user-images.githubusercontent.com/39448332/40281142-39a5eb28-5c7b-11e8-985d-b4e87a398d43.png)
 
 ## Purpose of the exercise:
 
