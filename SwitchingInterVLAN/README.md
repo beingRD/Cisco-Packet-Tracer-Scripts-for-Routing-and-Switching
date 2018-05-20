@@ -7,6 +7,9 @@ To practice this example:
 - connect them with crossover cables
 - execute the text file
 ```
+
+![switchingintervlan](https://user-images.githubusercontent.com/39448332/40281187-a5fc843a-5c7b-11e8-8c8c-90728fa9dcce.png)
+
 # Objective
 
 Connect 2 VLANs via a router
