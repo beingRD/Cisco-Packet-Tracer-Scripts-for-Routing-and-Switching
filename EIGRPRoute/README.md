@@ -7,7 +7,7 @@ To practice this example:
 - Open file ../0.IPv4/IPv4.pkt
 - Execute the commands of the .txt file
 ```
-
+![eigrproute](https://user-images.githubusercontent.com/39448332/40281098-8bdfec78-5c7a-11e8-8639-12081fc00e23.png)
 
 ## Purpose of the exercise:
 
