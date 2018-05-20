@@ -9,6 +9,7 @@ To practice this example:
 - Execute the commands of the .txt file
 ```
 
+![ipv6](https://user-images.githubusercontent.com/39448332/40281117-e05c64fc-5c7a-11e8-8020-27f8251bd26b.png)
 
 
 ## Purpose :
