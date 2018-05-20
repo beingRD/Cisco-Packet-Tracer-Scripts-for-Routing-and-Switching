@@ -7,6 +7,7 @@ To practice this example:
 - Execute the commands of the .txt file
 ```
 
+![ospfroute](https://user-images.githubusercontent.com/39448332/40281122-fe1b3900-5c7a-11e8-80a4-4bf238b706ab.png)
 
 ## Purpose of the exercise:
 
