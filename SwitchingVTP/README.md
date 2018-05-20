@@ -7,7 +7,7 @@ To practice this example:
 - connect them with crossover cables
 - execute the text file
 
-
+![switchingvtp](https://user-images.githubusercontent.com/39448332/40281202-ec4a3cc0-5c7b-11e8-873e-eda7a6952b06.png)
 
 # Objective
 
