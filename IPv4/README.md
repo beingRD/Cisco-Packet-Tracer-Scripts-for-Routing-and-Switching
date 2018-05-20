@@ -10,6 +10,8 @@
 - respect the 'ports' indicated by the diagram (connect the serial cables manually)
 - Execute the commands of the .txt file
 ```
+![ipv4](https://user-images.githubusercontent.com/39448332/40281111-bcdcb4aa-5c7a-11e8-8694-cd1c88629e8f.png)
+
 
 
 ## Purpose of the exercise:
