@@ -1,0 +1,35 @@
+
+! ===================== First  Router =======================
+! Enter privilege mode
+
+! Configure static routes
+config t
+ip route 192.168.101.0 255.255.255.0 s0 / 1/1 150
+ip route 192.168.102.0 255.255.255.0 s0 / 1/1 150
+ip route 10.10.10.4 255.255.255.252 s0 / 1/1 150
+
+do wr
+exit
+
+! ===================== Second Router =======================
+! Enter privilege mode
+
+! Configure static routes
+config t
+ip route 192.168.100.0 255.255.255.0 s0 / 1/0 150
+ip route 10.10.10.4 255.255.255.252 s0 / 1/0 150
+ip route 192.168.102.0 255.255.255.0 s0 / 1/1 150
+ip route 10.10.10.8 255.255.255.252 s0 / 1/1 150
+
+do wr
+exit
+
+! Third ====================
+! Enter privilege mode
+
+! Configure the default route
+config t
+ip route 0.0.0.0 0.0.0.0 s0 / 1/0
+
+do wr
+exit

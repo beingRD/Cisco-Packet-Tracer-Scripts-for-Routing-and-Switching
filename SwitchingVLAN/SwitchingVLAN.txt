@@ -1,0 +1,34 @@
+! ===================== First Switch =======================
+! Enter privilege mode
+config t
+hostname SW1
+
+! Create a VLAN (Other than the default one)
+vlan 2
+name ADMINISTRATION
+
+! Give access to port f0 / 2 at vlan 2
+int f0 / 2
+switchport mode access
+switchport access vlan 2
+do wr
+
+! Pass port f0 / 21 in trunk mode
+int f0 / 21
+switchport mode trunk
+do wr
+
+! ===================== Second  Switch =======================
+! Enter privilege mode
+config t
+hostname SW2
+
+! Create a VLAN (Other than the default one)
+vlan 2
+name ADMINISTRATION
+
+! Give access to port f0 / 2 at vlan 2
+int f0 / 2
+switchport mode access
+switchport access vlan 2
+do wr

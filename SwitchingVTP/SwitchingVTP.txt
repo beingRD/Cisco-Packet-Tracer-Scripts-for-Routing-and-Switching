@@ -1,0 +1,112 @@
+
+! ===================== First Switch : (Core) =======================
+! Enter privilege mode
+config t
+hostname CORE_SW1
+
+! Create VLANs using STP on the 'Root Bridge'
+spanning tree VLAN 1,100,200 priority 0
+
+! First VLAN (except the default one)
+100 vlan
+name ADMINISTRATION
+
+! Second VLAN
+vlan 200
+name STUDENTS
+
+! Create a VTP domain (default server mode for Core, clients for others)
+vtp domain BOREAL
+
+! Pass the f0 / 22-23 ports in trunk mode
+int range f0 / 22-23
+switchport mode trunk
+
+! Pass port g0 / 1 in trunk mode
+int g0 / 1
+switchport mode trunk
+
+
+do wr
+end
+
+! ===================== Second Switch =======================
+! Enter privilege mode
+config t
+hostname ADMINISTRATION
+
+! VTP mode (allows downlink copy of VLANs)
+vtp client mode
+
+! Assign ports F0 / 1-15 to VLAN 100
+int range f0 / 1-15
+switchport mode access
+switchport access vlan 100
+
+! Enable minimal protection at ports of access
+switchport port-security mac sticky
+switchport port-security max 1
+switchport port-security vio shut
+
+! Disable STP at ports
+spanning tree portfast
+spanning tree bpduguard enable
+
+do wr
+end
+
+! Third ====================
+! Enter privilege mode
+config t
+hostname STUDENTS
+
+! VTP mode
+vtp client mode
+
+! Assign ports F0 / 1-15 to the VLAN 200
+int range f0 / 1-15
+switchport mode access
+switchport access vlan 200
+
+! Enable minimal protection at ports of access
+switchport port-security mac sticky
+switchport port-security max 1
+switchport port-security vio shut
+
+! Disable STP at ports
+spanning tree portfast
+spanning tree bpduguard enable
+
+do wr
+end
+
+! Router =================
+! Enter privilege mode
+
+config t
+hostname R1
+
+! No IP address on the interface
+int g0 / 0
+no shut
+
+! Configuring subinterfaces by VLANs
+!
+
+! VLAN 100
+int g0 / 0.100
+encap dot1q 100
+ip address 192.168.100.254 255.255.255.0
+
+! VLAN 200
+int g0 / 0.200
+encap dot1q 200
+ip address 192.168.200.254 255.255.255.0
+
+! Configure the server address
+int g0 / 1
+ip address 10.10.10.5 255.255.255.252
+no shut
+
+do wr
+end

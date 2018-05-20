@@ -1,0 +1,15 @@
+! A Switch  ===================
+! Enter privilege mode
+config t
+
+! Change the 'Root Bridge'
+spanning tree vlan 1 priority 0
+
+
+! Disable STP at the given ports for instant access
+int range f0 / 1-15
+spanning tree portfast
+
+! Prevent BPDU frames from accessing the given ports
+int range f0 / 1-15
+spanning tree bpduguard enable

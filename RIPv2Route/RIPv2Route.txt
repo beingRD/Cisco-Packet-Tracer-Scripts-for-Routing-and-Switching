@@ -1,0 +1,64 @@
+! ===================== First Router =======================
+! Enter privilege mode
+config t
+
+! Configure RIP v2
+router rip
+version 2
+network 10.10.10.4
+network 192.168.100.0
+no auto-summary
+
+do wr
+exit
+exit
+
+
+! ===================== Second  Router =======================
+! Enter privilege mode
+config t
+
+! Configure RIP v2
+router rip
+version 2
+network 10.0.0.0
+network 192.168.101.0
+no auto-summary
+
+do wr
+exit
+exit
+
+! Third ====================
+! Enter privilege mode
+config t
+
+! Configure RIP v2
+config t
+router rip
+version 2
+network 10.0.0.0
+network 192.168.102.0
+no auto-summary
+
+do wr
+exit
+exit
+
+! Configure RIP v2 Gateway of last resort
+config t
+router rip
+default-information originate
+
+do wr
+exit
+exit
+
+! Configure the router interfaces for the external server
+int g0 / 1
+ip address 192.168.103.254 255.255.255.0
+no shut
+
+do wr
+exit
+exit

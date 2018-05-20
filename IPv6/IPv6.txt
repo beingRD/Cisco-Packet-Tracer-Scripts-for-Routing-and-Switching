@@ -1,0 +1,47 @@
+! First  Router
+! Set to privilege mode
+config t
+
+! Configure interfaces in IPv6
+int g0 / 0
+ipv6 address 2001: 3200: B0EA: 1000 :: E / 56
+
+int s0 / 1/1
+ipv6 address 2001: 3200: B0EA: 1300 :: 1/56
+
+exit
+exit
+wr
+
+! Second Router
+! Set to privilege mode
+config t
+
+! Configure interfaces in IPv6
+int g0 / 0
+ipv6 address 2001: 3200: B0EA: 1100 :: E / 56
+
+int s0 / 1/0
+ipv6 address 2001: 3200: B0EA: 1300 :: 2/56
+
+int s0 / 1/1
+ipv6 address 2001: 3200: B0EA: 1400 :: 1/56
+
+exit
+exit
+wr
+
+! Third Router
+! Set to privilege mode
+config t
+
+! Configure interfaces in IPv6
+int g0 / 0
+ipv6 address 2001: 3200: B0EA: 1200 :: E / 56
+
+int s0 / 1/0
+ipv6 address 2001: 3200: B0EA: 1400 :: 1/56
+
+exit
+exit
+wr

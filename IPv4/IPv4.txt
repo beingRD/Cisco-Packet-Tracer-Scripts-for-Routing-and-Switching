@@ -1,0 +1,118 @@
+
+! =====================  First Router  =======================
+
+en
+config t
+hostname R1
+enable password cisco
+enable secret etudiant
+
+line con 0
+password cisco
+login
+logging synchronous
+
+line vty 0 15
+password cisco
+login
+logging synchronous
+
+do wr
+exit
+exit
+
+
+
+en
+config t
+int g0/0
+ip address 192.168.100.254 255.255.255.0
+no shut
+
+int s0/1/1
+ip address 10.10.10.5 255.255.255.252
+clock rate 4000000
+no shut
+
+do wr
+exit
+exit
+
+! =====================  Second Routeur  =======================
+
+en
+config t
+hostname R2
+ 
+username inf1023 privilege 15 password 0 cisco
+
+line con 0
+login local
+
+do wr
+exit
+exit
+
+
+en
+config t
+int g0/0
+ip address 192.168.101.254 255.255.255.0
+no shut
+
+int s0/1/0
+ip address 10.10.10.6 255.255.255.252
+no shut
+
+int s0/1/1
+ip address 10.10.10.9 255.255.255.252
+clock rate 4000000
+no shut
+
+do wr
+exit
+exit
+
+
+copy run start
+
+
+! =====================  Third Router  =======================
+
+en
+config t
+hostname R3
+enable password cisco
+enable secret etudiant
+
+line con 0
+password cisco
+login
+logging synchronous
+
+line vty 0 15
+password cisco
+login
+logging synchronous
+
+do wr
+exit
+exit
+
+
+en
+config t
+int g0/0
+ip address 192.168.102.254 255.255.255.0
+no shut
+
+int s0/1/0
+ip address 10.10.10.10 255.255.255.252
+no shut
+
+do wr
+exit
+exit
+
+
+copy run start
