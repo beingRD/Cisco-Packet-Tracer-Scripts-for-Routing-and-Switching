@@ -6,6 +6,7 @@ To practice this example:
 - Open file ../0.IPv4/IPv4.pkt
 - Execute the commands of the .txt file
 ```
+![staticroute](https://user-images.githubusercontent.com/39448332/40281173-79c86b86-5c7b-11e8-8713-2e8bc280cd39.png)
 
 
 ## Purpose of the exercise:
